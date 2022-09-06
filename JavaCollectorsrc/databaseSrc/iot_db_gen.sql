@@ -35,7 +35,7 @@ CREATE  TABLE IF NOT EXISTS `smart_irrigation_db_nuovo`.`ActuatorActivation` (
   INDEX `ActAssing` (`ActuatorId` ASC) ,
   CONSTRAINT `ActAssing`
     FOREIGN KEY (`ActuatorId` )
-    REFERENCES `smart_irrigation_db_nuovo`.`actuatordevice` (`ActuatorId` )
+    REFERENCES `smart_irrigation_db_nuovo`.`ActuatorDevice` (`ActuatorId` )
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -106,6 +106,7 @@ DEFAULT CHARACTER SET = latin1;
 --
 -- create user for jdbc connections
 --
+DROP USER 'JavaCollector'@'localhost';
 CREATE USER 'JavaCollector'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'JavaCollector'@'localhost' WITH GRANT OPTION;
 
